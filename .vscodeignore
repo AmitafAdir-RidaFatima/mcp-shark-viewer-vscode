@@ -6,4 +6,5 @@ vsc-extension-quickstart.md
 **/tsconfig.json
 **/*.map
 **/*.ts
+how-to.gif
 

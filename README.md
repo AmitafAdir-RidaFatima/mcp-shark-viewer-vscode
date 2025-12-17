@@ -9,7 +9,10 @@
 </div>
 
 <p align="center">
-  <img src="./how-to.gif" alt="MCP Shark Viewer walkthrough" />
+  <img
+    src="https://raw.githubusercontent.com/mcp-shark/mcp-shark-viewer-vscode/main/how-to.gif"
+    alt="MCP Shark Viewer walkthrough"
+  />
 </p>
 
 ## Table of Contents
