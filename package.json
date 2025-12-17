@@ -3,7 +3,7 @@
   "publisher": "MCPSharkInspector",
   "displayName": "MCP Shark Viewer",
   "description": "View and analyze MCP Shark traffic data directly in VS Code, Cursor, and Windsurf. Monitor packets, conversations, and statistics from your MCP server interactions.",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "icon": "icon.png",
   "engines": {
     "vscode": "^1.74.0"
@@ -53,36 +53,36 @@
         }
       ]
     },
-        "commands": [
-        {
-          "command": "mcp-shark.viewer.startServer",
-          "title": "Start MCP Shark Server",
-          "category": "MCP Shark",
-          "icon": "$(play)"
-        },
-        {
-          "command": "mcp-shark.viewer.stopServer",
-          "title": "Stop MCP Shark Server",
-          "category": "MCP Shark",
-          "icon": "$(stop-circle)"
-        },
-        {
-          "command": "mcp-shark.viewer.showDatabasePanel",
-          "title": "MCP Shark Traffic inspector",
-          "category": "MCP Shark",
-          "icon": "$(database)"
-        },
-        {
-          "command": "mcp-shark.viewer.openInspector",
-          "title": "Open Traffic Inspector",
-          "icon": "$(database)"
-        },
-        {
-          "command": "mcp-shark.viewer.refresh",
-          "title": "Refresh",
-          "icon": "$(refresh)"
-        }
-        ],
+    "commands": [
+      {
+        "command": "mcp-shark.viewer.startServer",
+        "title": "Start MCP Shark Server",
+        "category": "MCP Shark",
+        "icon": "$(play)"
+      },
+      {
+        "command": "mcp-shark.viewer.stopServer",
+        "title": "Stop MCP Shark Server",
+        "category": "MCP Shark",
+        "icon": "$(stop-circle)"
+      },
+      {
+        "command": "mcp-shark.viewer.showDatabasePanel",
+        "title": "MCP Shark Traffic inspector",
+        "category": "MCP Shark",
+        "icon": "$(database)"
+      },
+      {
+        "command": "mcp-shark.viewer.openInspector",
+        "title": "Open Traffic Inspector",
+        "icon": "$(database)"
+      },
+      {
+        "command": "mcp-shark.viewer.refresh",
+        "title": "Refresh",
+        "icon": "$(refresh)"
+      }
+    ],
     "menus": {
       "view/title": [
         {
