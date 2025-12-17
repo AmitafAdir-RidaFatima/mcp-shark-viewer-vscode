@@ -24,7 +24,13 @@
     "packets"
   ],
   "activationEvents": [
-    "onStartupFinished"
+    "onStartupFinished",
+    "onView:mcp-shark-traffic",
+    "onCommand:mcp-shark.viewer.startServer",
+    "onCommand:mcp-shark.viewer.stopServer",
+    "onCommand:mcp-shark.viewer.showDatabasePanel",
+    "onCommand:mcp-shark.viewer.openInspector",
+    "onCommand:mcp-shark.viewer.refresh"
   ],
   "main": "./extension.js",
   "contributes": {
@@ -42,6 +48,7 @@
         {
           "id": "mcp-shark-traffic",
           "name": "Traffic Inspector",
+          "icon": "icon.png",
           "when": "true"
         }
       ]
