@@ -8,6 +8,10 @@
 
 </div>
 
+<p align="center">
+  <img src="./how-to.gif" alt="MCP Shark Viewer walkthrough" />
+</p>
+
 ## Table of Contents
 
 - [About](#about)
