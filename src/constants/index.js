@@ -8,7 +8,6 @@ const VIEW_ID_TRAFFIC = "mcp-shark-traffic";
 const COMMAND_IDS = {
   startServer: "mcp-shark.viewer.startServer",
   stopServer: "mcp-shark.viewer.stopServer",
-  showDatabasePanel: "mcp-shark.viewer.showDatabasePanel",
   openInspector: "mcp-shark.viewer.openInspector",
   refresh: "mcp-shark.viewer.refresh",
 };
