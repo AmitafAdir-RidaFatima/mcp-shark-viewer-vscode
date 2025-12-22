@@ -5,13 +5,14 @@ const {
   stopMcpSharkServer,
 } = require("./lifecycle");
 
-const { fetchMcpSharkSettings } = require("./settings");
+const { fetchMcpSharkSettings, isMcpSharkSetupComplete } = require("./settings");
 
 module.exports = {
   ensureMcpSharkRunning,
   fetchMcpSharkSettings,
   getCachedMcpSharkSettings,
   isMcpSharkRunning,
+  isMcpSharkSetupComplete,
   stopMcpSharkServer,
 };
 

@@ -1,6 +1,10 @@
 const { MCP_SHARK_BASE_URL } = require("../constants");
 
-function getMcpSharkIframeHtml() {
+function getMcpSharkIframeHtml({ route = "traffic" } = {}) {
+  // Route can be "setup" or "traffic"
+  const iframeUrl = route === "setup" 
+    ? `${MCP_SHARK_BASE_URL}/#/setup`
+    : `${MCP_SHARK_BASE_URL}/#/traffic`;
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -135,7 +139,7 @@ function getMcpSharkIframeHtml() {
                 </button>
             </div>
         </div>
-        <iframe src="${MCP_SHARK_BASE_URL}" title="MCP Shark UI" allowfullscreen></iframe>
+        <iframe src="${iframeUrl}" title="MCP Shark UI" allowfullscreen></iframe>
     </div>
     <script>
         const vscode = acquireVsCodeApi();

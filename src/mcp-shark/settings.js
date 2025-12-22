@@ -19,9 +19,30 @@ const fetchMcpSharkSettings = async ({ cache } = {}) => {
   return settings;
 };
 
+const isMcpSharkSetupComplete = async () => {
+  try {
+    const settings = await fetchMcpSharkSettings();
+    // Check if setup is complete - typically means servers are configured
+    // Settings might have a servers array or isSetupComplete flag
+    // For now, check if servers array exists and has items, or if there's an isSetupComplete flag
+    if (settings.servers && Array.isArray(settings.servers) && settings.servers.length > 0) {
+      return true;
+    }
+    if (settings.isSetupComplete === true) {
+      return true;
+    }
+    // If no servers configured, setup is not complete
+    return false;
+  } catch (_error) {
+    // If we can't fetch settings, assume setup is not complete
+    return false;
+  }
+};
+
 module.exports = {
   createMcpSharkSettingsCache,
   fetchMcpSharkSettings,
+  isMcpSharkSetupComplete,
 };
 
 

@@ -1,5 +1,5 @@
 const { getMcpSharkIframeHtml, getStartServerHtml } = require("./html");
-const { ensureMcpSharkRunning, isMcpSharkRunning, stopMcpSharkServer } = require("../mcp-shark");
+const { ensureMcpSharkRunning, isMcpSharkRunning, isMcpSharkSetupComplete, stopMcpSharkServer } = require("../mcp-shark");
 const { setActivePanel } = require("./panelState");
 
 const createDatabasePanel = async ({ context, vscode }) => {
@@ -37,7 +37,9 @@ const createDatabasePanel = async ({ context, vscode }) => {
           setTimeout(async () => {
             const running = await isMcpSharkRunning();
             if (running) {
-              panel.webview.html = getMcpSharkIframeHtml();
+              const isSetupComplete = await isMcpSharkSetupComplete();
+              const route = isSetupComplete ? "traffic" : "setup";
+              panel.webview.html = getMcpSharkIframeHtml({ route });
             } else {
               panel.webview.html = getStartServerHtml({
                 message: "Server may still be starting. Please wait a moment and try again.",
@@ -52,7 +54,9 @@ const createDatabasePanel = async ({ context, vscode }) => {
         if (message.command === "checkStatus") {
           const running = await isMcpSharkRunning();
           if (running) {
-            panel.webview.html = getMcpSharkIframeHtml();
+            const isSetupComplete = await isMcpSharkSetupComplete();
+            const route = isSetupComplete ? "traffic" : "setup";
+            panel.webview.html = getMcpSharkIframeHtml({ route });
           } else {
             panel.webview.postMessage({ command: "statusUpdate", running: false });
           }
@@ -65,7 +69,10 @@ const createDatabasePanel = async ({ context, vscode }) => {
     return panel;
   }
 
-  panel.webview.html = getMcpSharkIframeHtml();
+  // Check setup status and route accordingly
+  const isSetupComplete = await isMcpSharkSetupComplete();
+  const route = isSetupComplete ? "traffic" : "setup";
+  panel.webview.html = getMcpSharkIframeHtml({ route });
 
   panel.webview.onDidReceiveMessage(
     async (message) => {
@@ -76,6 +83,11 @@ const createDatabasePanel = async ({ context, vscode }) => {
             message: "MCP Shark server stopped. Please start it again.",
             imageUri,
           });
+        } else {
+          // Re-check setup status when server is running
+          const isSetupComplete = await isMcpSharkSetupComplete();
+          const route = isSetupComplete ? "traffic" : "setup";
+          panel.webview.html = getMcpSharkIframeHtml({ route });
         }
         return;
       }
