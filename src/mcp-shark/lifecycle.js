@@ -59,14 +59,14 @@ const ensureMcpSharkRunning = async ({ vscode, webviewPanel = null }) => {
   };
 
   // Spawn the process and capture stdout/stderr
-  const child = spawn("npx", ["-y", "@mcp-shark/mcp-shark"], {
+  const child = spawn("npx", ["-y", "@mcp-shark/mcp-shark@latest"], {
     shell: true,
     stdio: ["ignore", "pipe", "pipe"],
   });
 
   // Send initial message
   sendOutput("Starting MCP Shark server...\n", "stdout");
-  sendOutput("Running: npx -y @mcp-shark/mcp-shark\n", "stdout");
+  sendOutput("Running: npx -y @mcp-shark/mcp-shark@latest\n", "stdout");
 
   // Capture stdout
   child.stdout.on("data", (data) => {
