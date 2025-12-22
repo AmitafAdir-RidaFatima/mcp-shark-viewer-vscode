@@ -45,7 +45,8 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
             max-width: 500px;
             width: 100%;
             margin: 0 auto;
-            ${showOutput ? "display: none;" : ""}
+            padding: 20px;
+            flex-shrink: 0;
         }
         
         .icon {
@@ -82,9 +83,10 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
             flex-direction: column;
             flex: 1;
             width: 100%;
-            height: 100%;
             margin: 0;
-            padding: 0;
+            padding: 0 20px 20px 20px;
+            min-height: 0;
+            overflow: hidden;
         }
 
         .output-header {
@@ -94,6 +96,7 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
             font-size: 14px;
             font-weight: 500;
             border-radius: 4px 4px 0 0;
+            flex-shrink: 0;
         }
 
         .output-terminal {
