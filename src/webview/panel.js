@@ -2,16 +2,18 @@ const { getMcpSharkIframeHtml, getStartServerHtml } = require("./html");
 const { ensureMcpSharkRunning, isMcpSharkRunning, stopMcpSharkServer } = require("../mcp-shark");
 
 // Track the active panel globally so we can send output to it
-let activePanel = null;
+const activePanelState = {
+  value: null,
+};
 
-const getActivePanel = () => activePanel;
+const getActivePanel = () => activePanelState.value;
 const setActivePanel = (panel) => {
-  activePanel = panel;
+  activePanelState.value = panel;
   if (panel) {
     // Clear panel reference when it's disposed
     panel.onDidDispose(() => {
-      if (activePanel === panel) {
-        activePanel = null;
+      if (activePanelState.value === panel) {
+        activePanelState.value = null;
       }
     });
   }

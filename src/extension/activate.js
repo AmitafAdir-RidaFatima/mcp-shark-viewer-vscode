@@ -39,7 +39,7 @@ const activate = (context) => {
 
   const startServerDisposable = vscode.commands.registerCommand(COMMAND_IDS.startServer, async () => {
     // Open/create the panel first so output can be shown
-    let panel = await createDatabasePanel({ context, vscode });
+    const panel = await createDatabasePanel({ context, vscode });
     
     // If panel already exists and server is running, just update status
     const isRunning = await isMcpSharkRunning();

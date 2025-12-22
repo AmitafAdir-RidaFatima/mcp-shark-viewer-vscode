@@ -52,9 +52,8 @@ const ensureMcpSharkRunning = async ({ vscode, webviewPanel = null }) => {
           line,
           type,
         });
-      } catch (error) {
+      } catch (_error) {
         // Panel might be disposed, ignore
-        console.log("Failed to send output to webview:", error.message);
       }
     }
   };
@@ -145,11 +144,8 @@ const stopMcpSharkServer = async ({ vscode }) => {
         ? `for /f "tokens=5" %a in ('netstat -aon ^| findstr :${MCP_SHARK_PORT}') do taskkill /PID %a /T`
         : `pids=$(lsof -ti:${MCP_SHARK_PORT} 2>/dev/null); if [ -n "$pids" ]; then kill -TERM $pids 2>/dev/null || true; fi`;
 
-    exec(command, (error) => {
-      if (error) {
-        // Process might not be running; treat as best-effort.
-        console.log("MCP Shark server stop attempt:", error.message);
-      }
+    exec(command, (_error) => {
+      // Process might not be running; treat as best-effort.
 
       setTimeout(async () => {
         const isRunning = await isMcpSharkRunning();
