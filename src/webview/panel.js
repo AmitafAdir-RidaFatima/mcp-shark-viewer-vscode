@@ -1,6 +1,22 @@
 const { getMcpSharkIframeHtml, getStartServerHtml } = require("./html");
 const { ensureMcpSharkRunning, isMcpSharkRunning, stopMcpSharkServer } = require("../mcp-shark");
 
+// Track the active panel globally so we can send output to it
+let activePanel = null;
+
+const getActivePanel = () => activePanel;
+const setActivePanel = (panel) => {
+  activePanel = panel;
+  if (panel) {
+    // Clear panel reference when it's disposed
+    panel.onDidDispose(() => {
+      if (activePanel === panel) {
+        activePanel = null;
+      }
+    });
+  }
+};
+
 const createDatabasePanel = async ({ context, vscode }) => {
   const mediaRoot = vscode.Uri.joinPath(context.extensionUri, "media");
   const panel = vscode.window.createWebviewPanel(
@@ -15,6 +31,7 @@ const createDatabasePanel = async ({ context, vscode }) => {
   );
 
   const imageUri = panel.webview.asWebviewUri(vscode.Uri.joinPath(mediaRoot, "image.png"));
+  setActivePanel(panel);
   const isRunning = await isMcpSharkRunning();
 
   if (!isRunning) {
@@ -101,6 +118,7 @@ const createDatabasePanel = async ({ context, vscode }) => {
 
 module.exports = {
   createDatabasePanel,
+  getActivePanel,
 };
 
 

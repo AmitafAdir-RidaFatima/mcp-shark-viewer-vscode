@@ -4,6 +4,7 @@ const os = require("node:os");
 const { MCP_SHARK_BASE_URL, MCP_SHARK_PORT } = require("../constants");
 const { httpGetStatusCode } = require("./http");
 const { createMcpSharkSettingsCache, fetchMcpSharkSettings } = require("./settings");
+const { getActivePanel } = require("../webview");
 
 const settingsCache = createMcpSharkSettingsCache();
 
@@ -41,14 +42,20 @@ const ensureMcpSharkRunning = async ({ vscode, webviewPanel = null }) => {
     return false;
   }
 
-  // If webview panel is provided, send output to it
+  // If webview panel is provided, or get active panel, send output to it
   const sendOutput = (line, type = "stdout") => {
-    if (webviewPanel) {
-      webviewPanel.webview.postMessage({
-        command: "serverOutput",
-        line,
-        type,
-      });
+    const panel = webviewPanel || getActivePanel();
+    if (panel) {
+      try {
+        panel.webview.postMessage({
+          command: "serverOutput",
+          line,
+          type,
+        });
+      } catch (error) {
+        // Panel might be disposed, ignore
+        console.log("Failed to send output to webview:", error.message);
+      }
     }
   };
 

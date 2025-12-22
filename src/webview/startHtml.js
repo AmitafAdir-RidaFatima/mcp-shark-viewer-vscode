@@ -34,8 +34,10 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
             color: var(--text-primary);
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
-            padding: 20px;
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
         }
         
         .container {
@@ -78,9 +80,11 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
         .output-container {
             display: ${showOutput ? "flex" : "none"};
             flex-direction: column;
-            height: 100%;
+            flex: 1;
             width: 100%;
-            max-width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
         }
 
         .output-header {
@@ -102,10 +106,10 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
             border-radius: 0 0 4px 4px;
             flex: 1;
             overflow-y: auto;
+            overflow-x: auto;
             white-space: pre-wrap;
             word-wrap: break-word;
-            min-height: 300px;
-            max-height: calc(100vh - 200px);
+            min-height: 0;
         }
 
         .output-terminal .stderr {

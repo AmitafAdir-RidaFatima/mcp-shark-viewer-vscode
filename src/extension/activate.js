@@ -2,7 +2,7 @@ const vscode = require("vscode");
 
 const { COMMAND_IDS, VIEW_ID_TRAFFIC } = require("../constants");
 const { ensureMcpSharkRunning, isMcpSharkRunning, stopMcpSharkServer } = require("../mcp-shark");
-const { createDatabasePanel } = require("../webview");
+const { createDatabasePanel, getStartServerHtml } = require("../webview");
 const { TrafficInspectorProvider } = require("../tree");
 
 const checkMcpSharkStatus = async ({ provider }) => {
@@ -38,7 +38,29 @@ const activate = (context) => {
   });
 
   const startServerDisposable = vscode.commands.registerCommand(COMMAND_IDS.startServer, async () => {
-    await ensureMcpSharkRunning({ vscode });
+    // Open/create the panel first so output can be shown
+    let panel = await createDatabasePanel({ context, vscode });
+    
+    // If panel already exists and server is running, just update status
+    const isRunning = await isMcpSharkRunning();
+    if (isRunning) {
+      await trafficInspectorProvider.updateServerStatus();
+      return;
+    }
+    
+    // Update panel to show output area
+    const mediaRoot = vscode.Uri.joinPath(context.extensionUri, "media");
+    const imageUri = panel.webview.asWebviewUri(vscode.Uri.joinPath(mediaRoot, "image.png"));
+    panel.webview.html = getStartServerHtml({ 
+      imageUri, 
+      showOutput: true,
+      output: "Starting server...\n"
+    });
+    
+    // Reveal the panel so user can see the output
+    panel.reveal();
+    
+    await ensureMcpSharkRunning({ vscode, webviewPanel: panel });
     await trafficInspectorProvider.updateServerStatus();
   });
 
