@@ -1,5 +1,5 @@
-const { MCP_SHARK_SETTINGS_URL } = require("../constants");
-const { httpGetJson } = require("./http");
+const { MCP_SHARK_SETTINGS_URL, MCP_SHARK_SERVER_STATUS_URL } = require("../constants");
+const { httpGetJson, httpGetStatusCode } = require("./http");
 
 const createMcpSharkSettingsCache = () => {
   return {
@@ -21,20 +21,14 @@ const fetchMcpSharkSettings = async ({ cache } = {}) => {
 
 const isMcpSharkSetupComplete = async () => {
   try {
-    const settings = await fetchMcpSharkSettings();
-    // Check if setup is complete - typically means servers are configured
-    // Settings might have a servers array or isSetupComplete flag
-    // For now, check if servers array exists and has items, or if there's an isSetupComplete flag
-    if (settings.servers && Array.isArray(settings.servers) && settings.servers.length > 0) {
-      return true;
-    }
-    if (settings.isSetupComplete === true) {
-      return true;
-    }
-    // If no servers configured, setup is not complete
-    return false;
+    // Check if MCP server is ready to receive traffic
+    const status = await httpGetStatusCode(MCP_SHARK_SERVER_STATUS_URL, {
+      timeoutMs: 2000,
+    });
+    // If status is 200, server is ready to receive traffic (setup is complete)
+    return status === 200;
   } catch (_error) {
-    // If we can't fetch settings, assume setup is not complete
+    // If we can't reach the endpoint, assume setup is not complete
     return false;
   }
 };

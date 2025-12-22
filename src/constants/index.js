@@ -2,6 +2,7 @@ const MCP_SHARK_PORT = 9853;
 const MCP_SHARK_BASE_URL = `http://localhost:${MCP_SHARK_PORT}`;
 
 const MCP_SHARK_SETTINGS_URL = `${MCP_SHARK_BASE_URL}/api/settings`;
+const MCP_SHARK_SERVER_STATUS_URL = `${MCP_SHARK_BASE_URL}/api/mcp-server/status`;
 
 const VIEW_ID_TRAFFIC = "mcp-shark-traffic";
 
@@ -16,6 +17,7 @@ module.exports = {
   MCP_SHARK_PORT,
   MCP_SHARK_BASE_URL,
   MCP_SHARK_SETTINGS_URL,
+  MCP_SHARK_SERVER_STATUS_URL,
   VIEW_ID_TRAFFIC,
   COMMAND_IDS,
 };
