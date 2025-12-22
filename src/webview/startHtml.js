@@ -136,7 +136,7 @@ function getStartServerHtml({ message = null, imageUri = null, showOutput = fals
         </p>
     </div>
     <div class="output-container">
-        <div class="output-header">MCP Shark Server Output</div>
+        <div class="output-header">Server Logs</div>
         <div class="output-terminal" id="output">${output}</div>
     </div>
     <script>
