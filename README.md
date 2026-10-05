@@ -1,5 +1,7 @@
 # 🦈 mcp-shark-viewer-vscode - Inspect MPEG Traffic from Your IDE
 
+[![SafeSkill 88/100](https://img.shields.io/badge/SafeSkill-88%2F100_Passes%20with%20Notes-yellow)](https://safeskill.dev/scan/amitafadir-ridafatima-mcp-shark-viewer-vscode)
+
 ## 🚀 Overview
 Welcome to **mcp-shark-viewer-vscode**, a tool that integrates MCP Shark into Visual Studio Code. With this tool, you can view and analyze MCP traffic without leaving your development environment. Simplifying your workflow, this software enables you to debug and inspect network traffic with ease.
 
